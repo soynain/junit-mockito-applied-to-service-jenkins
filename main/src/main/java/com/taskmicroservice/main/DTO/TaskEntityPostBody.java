@@ -15,4 +15,11 @@ public class TaskEntityPostBody {
     private String description;
     
     private int user_id;
+
+    @Override
+    public String toString() {
+        return "TaskEntityPostBody [title=" + title + ", description=" + description + ", user_id=" + user_id + "]";
+    }
+
+    
 }

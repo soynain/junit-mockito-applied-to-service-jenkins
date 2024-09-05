@@ -40,4 +40,11 @@ public class TaskEntity {
     @Column
     private int user_id;
 
+    @Override
+    public String toString() {
+        return "TaskEntity [id=" + id + ", title=" + title + ", description=" + description + ", status=" + status
+                + ", user_id=" + user_id + "]";
+    }
+
+    
 }

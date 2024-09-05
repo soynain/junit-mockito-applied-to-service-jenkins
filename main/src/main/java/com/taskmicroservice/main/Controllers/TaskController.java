@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.taskmicroservice.main.DTO.TaskEntityPostBody;
 import com.taskmicroservice.main.DTO.TaskStatusUpdate;
+import com.taskmicroservice.main.Entities.TaskEntity;
 import com.taskmicroservice.main.ServicesImpl.TaskServiceImpl;
 
 @RestController
@@ -33,7 +34,9 @@ public class TaskController {
     @PostMapping("/create/new")
     public ResponseEntity<?> createTasks(@RequestBody TaskEntityPostBody request){
         log.info(request.toString()+" CUERPO DE LA SOLICITUD");
-        return ResponseEntity.ok().body(taskService.createTask(request));
+        TaskEntity response = taskService.createTask(request);
+        log.info("BODY DEL REQUEST: "+request);
+        return ResponseEntity.ok().body(response);
     }
 
     @PutMapping("/change-status/{id}")
